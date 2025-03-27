@@ -84,3 +84,35 @@ function constant(n: number, i: number) {
 const ansPlusone = map([10, 20, 30], plusOne);
 const ansPlusI = map([10, 20, 30], plusI);
 const ansConstant = map([10, 20, 30], constant);
+
+// todo: Problem 6
+function filter(
+  arr: number[],
+  fn: (value: number, index: number) => number | boolean
+) {
+  const filteredArray: number[] = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (fn(arr[i], i)) filteredArray.push(arr[i]);
+  }
+  return filteredArray;
+}
+
+function greaterThan10(n: number, index?: number) {
+  return n > 10;
+}
+
+function firstIndex(n: number, i: number) {
+  return i === 0;
+}
+
+function plusOneFilter(n: number) {
+  return n + 1;
+}
+
+const ansGreaterThan10 = filter([0, 10, 20, 30], greaterThan10);
+const ansFirstIndex = filter([1, 2, 3], firstIndex);
+const ansPlusOne = filter([-2, -1, 0, 1, 2], plusOneFilter);
+console.log(ansGreaterThan10);
+console.log(ansFirstIndex);
+console.log(ansPlusOne);
